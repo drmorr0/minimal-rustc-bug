@@ -14,3 +14,5 @@ results of the compiled code in the `avr.objdump` file.  This was compiled using
 This is a simplified example of a problem I discovered in [drmorr0/rustybot](https://github.com/drmorr0/rustybot).
 It's entirely possible I'm doing something wrong (or at least not recommended) but I
 found the behaviour surprising.
+
+rust-lang bug report: https://github.com/rust-lang/rust/issues/78260
