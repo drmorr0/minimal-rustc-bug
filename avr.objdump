@@ -1,0 +1,227 @@
+
+target/avr-atmega328p/release/minimal-test.elf:     file format elf32-avr
+
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 6a 00 	jmp	0xd4	; 0xd4 <__vector_15>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e8 ef       	ldi	r30, 0xF8	; 248
+  7c:	f1 e0       	ldi	r31, 0x01	; 1
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a0 30       	cpi	r26, 0x00	; 0
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	21 e0       	ldi	r18, 0x01	; 1
+  8c:	a0 e0       	ldi	r26, 0x00	; 0
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	a1 31       	cpi	r26, 0x11	; 17
+  96:	b2 07       	cpc	r27, r18
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 be 00 	call	0x17c	; 0x17c <main>
+  9e:	0c 94 f7 00 	jmp	0x1ee	; 0x1ee <exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <_ZN12minimal_test8Executor4push17h8e34dc0e39a0b388E>:
+  a6:	a0 91 0d 01 	lds	r26, 0x010D	; 0x80010d <_ZN12minimal_test8EXECUTOR17h8c844b993ba4ae4bE+0x9>
+  aa:	b0 91 0e 01 	lds	r27, 0x010E	; 0x80010e <_ZN12minimal_test8EXECUTOR17h8c844b993ba4ae4bE+0xa>
+  ae:	88 e0       	ldi	r24, 0x08	; 8
+  b0:	90 e0       	ldi	r25, 0x00	; 0
+  b2:	a8 17       	cp	r26, r24
+  b4:	b9 07       	cpc	r27, r25
+  b6:	68 f4       	brcc	.+26     	; 0xd2 <_ZN12minimal_test8Executor4push17h8e34dc0e39a0b388E+0x2c>
+  b8:	ab 5f       	subi	r26, 0xFB	; 251
+  ba:	be 4f       	sbci	r27, 0xFE	; 254
+  bc:	8b e7       	ldi	r24, 0x7B	; 123
+  be:	8c 93       	st	X, r24
+  c0:	80 91 0d 01 	lds	r24, 0x010D	; 0x80010d <_ZN12minimal_test8EXECUTOR17h8c844b993ba4ae4bE+0x9>
+  c4:	90 91 0e 01 	lds	r25, 0x010E	; 0x80010e <_ZN12minimal_test8EXECUTOR17h8c844b993ba4ae4bE+0xa>
+  c8:	01 96       	adiw	r24, 0x01	; 1
+  ca:	90 93 0e 01 	sts	0x010E, r25	; 0x80010e <_ZN12minimal_test8EXECUTOR17h8c844b993ba4ae4bE+0xa>
+  ce:	80 93 0d 01 	sts	0x010D, r24	; 0x80010d <_ZN12minimal_test8EXECUTOR17h8c844b993ba4ae4bE+0x9>
+  d2:	08 95       	ret
+
+000000d4 <__vector_15>:
+  d4:	0f 92       	push	r0
+  d6:	1f 92       	push	r1
+  d8:	0f b6       	in	r0, 0x3f	; 63
+  da:	0f 92       	push	r0
+  dc:	00 24       	eor	r0, r0
+  de:	2f 93       	push	r18
+  e0:	3f 93       	push	r19
+  e2:	4f 93       	push	r20
+  e4:	5f 93       	push	r21
+  e6:	6f 93       	push	r22
+  e8:	7f 93       	push	r23
+  ea:	8f 93       	push	r24
+  ec:	9f 93       	push	r25
+  ee:	ef 93       	push	r30
+  f0:	ff 93       	push	r31
+  f2:	40 91 00 01 	lds	r20, 0x0100	; 0x800100 <__data_end>
+  f6:	50 91 01 01 	lds	r21, 0x0101	; 0x800101 <__data_end+0x1>
+  fa:	60 91 02 01 	lds	r22, 0x0102	; 0x800102 <__data_end+0x2>
+  fe:	70 91 03 01 	lds	r23, 0x0103	; 0x800103 <__data_end+0x3>
+ 102:	4f 5f       	subi	r20, 0xFF	; 255
+ 104:	5f 4f       	sbci	r21, 0xFF	; 255
+ 106:	6f 4f       	sbci	r22, 0xFF	; 255
+ 108:	7f 4f       	sbci	r23, 0xFF	; 255
+ 10a:	50 93 01 01 	sts	0x0101, r21	; 0x800101 <__data_end+0x1>
+ 10e:	40 93 00 01 	sts	0x0100, r20	; 0x800100 <__data_end>
+ 112:	70 93 03 01 	sts	0x0103, r23	; 0x800103 <__data_end+0x3>
+ 116:	60 93 02 01 	sts	0x0102, r22	; 0x800102 <__data_end+0x2>
+ 11a:	eb e0       	ldi	r30, 0x0B	; 11
+ 11c:	f0 e0       	ldi	r31, 0x00	; 0
+ 11e:	80 e0       	ldi	r24, 0x00	; 0
+ 120:	90 e0       	ldi	r25, 0x00	; 0
+ 122:	21 e0       	ldi	r18, 0x01	; 1
+ 124:	4e 17       	cp	r20, r30
+ 126:	5f 07       	cpc	r21, r31
+ 128:	68 07       	cpc	r22, r24
+ 12a:	79 07       	cpc	r23, r25
+ 12c:	08 f0       	brcs	.+2      	; 0x130 <__vector_15+0x5c>
+ 12e:	20 e0       	ldi	r18, 0x00	; 0
+ 130:	21 70       	andi	r18, 0x01	; 1
+ 132:	20 30       	cpi	r18, 0x00	; 0
+ 134:	a1 f4       	brne	.+40     	; 0x15e <__vector_15+0x8a>
+ 136:	20 91 0f 01 	lds	r18, 0x010F	; 0x80010f <_ZN12minimal_test7HANDLER17had98c5749f3a28e5E.0.0>
+ 13a:	30 e0       	ldi	r19, 0x00	; 0
+ 13c:	30 93 0f 01 	sts	0x010F, r19	; 0x80010f <_ZN12minimal_test7HANDLER17had98c5749f3a28e5E.0.0>
+ 140:	21 30       	cpi	r18, 0x01	; 1
+ 142:	69 f4       	brne	.+26     	; 0x15e <__vector_15+0x8a>
+ 144:	20 91 04 01 	lds	r18, 0x0104	; 0x800104 <_ZN12minimal_test8EXECUTOR17h8c844b993ba4ae4bE>
+ 148:	21 30       	cpi	r18, 0x01	; 1
+ 14a:	49 f4       	brne	.+18     	; 0x15e <__vector_15+0x8a>
+ 14c:	20 91 0d 01 	lds	r18, 0x010D	; 0x80010d <_ZN12minimal_test8EXECUTOR17h8c844b993ba4ae4bE+0x9>
+ 150:	30 91 0e 01 	lds	r19, 0x010E	; 0x80010e <_ZN12minimal_test8EXECUTOR17h8c844b993ba4ae4bE+0xa>
+ 154:	28 17       	cp	r18, r24
+ 156:	39 07       	cpc	r19, r25
+ 158:	11 f4       	brne	.+4      	; 0x15e <__vector_15+0x8a>
+ 15a:	0e 94 53 00 	call	0xa6	; 0xa6 <_ZN12minimal_test8Executor4push17h8e34dc0e39a0b388E>
+ 15e:	ff 91       	pop	r31
+ 160:	ef 91       	pop	r30
+ 162:	9f 91       	pop	r25
+ 164:	8f 91       	pop	r24
+ 166:	7f 91       	pop	r23
+ 168:	6f 91       	pop	r22
+ 16a:	5f 91       	pop	r21
+ 16c:	4f 91       	pop	r20
+ 16e:	3f 91       	pop	r19
+ 170:	2f 91       	pop	r18
+ 172:	0f 90       	pop	r0
+ 174:	0f be       	out	0x3f, r0	; 63
+ 176:	1f 90       	pop	r1
+ 178:	0f 90       	pop	r0
+ 17a:	18 95       	reti
+
+0000017c <main>:
+ 17c:	8f b7       	in	r24, 0x3f	; 63
+ 17e:	f8 94       	cli
+ 180:	90 91 10 01 	lds	r25, 0x0110	; 0x800110 <DEVICE_PERIPHERALS>
+ 184:	90 30       	cpi	r25, 0x00	; 0
+ 186:	11 f0       	breq	.+4      	; 0x18c <main+0x10>
+ 188:	90 e0       	ldi	r25, 0x00	; 0
+ 18a:	03 c0       	rjmp	.+6      	; 0x192 <main+0x16>
+ 18c:	91 e0       	ldi	r25, 0x01	; 1
+ 18e:	90 93 10 01 	sts	0x0110, r25	; 0x800110 <DEVICE_PERIPHERALS>
+ 192:	88 23       	and	r24, r24
+ 194:	0a f4       	brpl	.+2      	; 0x198 <main+0x1c>
+ 196:	78 94       	sei
+ 198:	90 30       	cpi	r25, 0x00	; 0
+ 19a:	b9 f0       	breq	.+46     	; 0x1ca <main+0x4e>
+ 19c:	83 e0       	ldi	r24, 0x03	; 3
+ 19e:	85 bd       	out	0x25, r24	; 37
+ 1a0:	80 e0       	ldi	r24, 0x00	; 0
+ 1a2:	86 bd       	out	0x26, r24	; 38
+ 1a4:	94 e0       	ldi	r25, 0x04	; 4
+ 1a6:	90 93 6e 00 	sts	0x006E, r25	; 0x80006e <__DATA_REGION_ORIGIN__+0xe>
+ 1aa:	88 bd       	out	0x28, r24	; 40
+ 1ac:	80 e0       	ldi	r24, 0x00	; 0
+ 1ae:	90 e0       	ldi	r25, 0x00	; 0
+ 1b0:	90 93 0e 01 	sts	0x010E, r25	; 0x80010e <_ZN12minimal_test8EXECUTOR17h8c844b993ba4ae4bE+0xa>
+ 1b4:	80 93 0d 01 	sts	0x010D, r24	; 0x80010d <_ZN12minimal_test8EXECUTOR17h8c844b993ba4ae4bE+0x9>
+ 1b8:	81 e0       	ldi	r24, 0x01	; 1
+ 1ba:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <_ZN12minimal_test8EXECUTOR17h8c844b993ba4ae4bE>
+ 1be:	80 93 0f 01 	sts	0x010F, r24	; 0x80010f <_ZN12minimal_test7HANDLER17had98c5749f3a28e5E.0.0>
+ 1c2:	78 94       	sei
+ 1c4:	ae eb       	ldi	r26, 0xBE	; 190
+ 1c6:	bf ee       	ldi	r27, 0xEF	; 239
+ 1c8:	fd cf       	rjmp	.-6      	; 0x1c4 <main+0x48>
+ 1ca:	0e 94 e9 00 	call	0x1d2	; 0x1d2 <_ZN4core9panicking5panic17h5960cdf61677fa1bE>
+ 1ce:	0e 94 f2 00 	call	0x1e4	; 0x1e4 <abort>
+
+000001d2 <_ZN4core9panicking5panic17h5960cdf61677fa1bE>:
+ 1d2:	0e 94 ed 00 	call	0x1da	; 0x1da <_ZN4core9panicking9panic_fmt17hbc5a08410cf0c7beE>
+ 1d6:	0e 94 f2 00 	call	0x1e4	; 0x1e4 <abort>
+
+000001da <_ZN4core9panicking9panic_fmt17hbc5a08410cf0c7beE>:
+ 1da:	0e 94 f1 00 	call	0x1e2	; 0x1e2 <rust_begin_unwind>
+ 1de:	0e 94 f2 00 	call	0x1e4	; 0x1e4 <abort>
+
+000001e2 <rust_begin_unwind>:
+ 1e2:	ff cf       	rjmp	.-2      	; 0x1e2 <rust_begin_unwind>
+
+000001e4 <abort>:
+ 1e4:	81 e0       	ldi	r24, 0x01	; 1
+ 1e6:	90 e0       	ldi	r25, 0x00	; 0
+ 1e8:	f8 94       	cli
+ 1ea:	0c 94 fa 00 	jmp	0x1f4	; 0x1f4 <_exit>
+
+000001ee <exit>:
+ 1ee:	f8 94       	cli
+ 1f0:	0c 94 fa 00 	jmp	0x1f4	; 0x1f4 <_exit>
+
+000001f4 <_exit>:
+ 1f4:	f8 94       	cli
+
+000001f6 <__stop_program>:
+ 1f6:	ff cf       	rjmp	.-2      	; 0x1f6 <__stop_program>
